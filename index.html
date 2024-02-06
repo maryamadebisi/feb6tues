@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+<script>
+  /* global nn */
+
+  function createCD(size, x, y) {
+    nn.create('img')
+      .set({
+        sr: 'cd.gif',
+        alt: 'this is a cd'
+      })
+      .css({
+        'width': `${size}px`,
+        'position': 'absolute',
+        'left': `${x - size / 2}px`,
+        'top': `${y - size / 2}px`
+      })
+      .addTo('body')
+  }
+
+  function setup() {
+    for (let i = 0; i < 100; i++) {
+      const size = 100
+      const cx = nn.width / 2
+      const cy = nn.height / 2
+
+      const x = i * size / 4
+      const y = cy + Math.sin(i)
+    }
+  }
+
+  nn.on('load', setup)
+</script>
